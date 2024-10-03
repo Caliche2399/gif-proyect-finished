@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
+import { Form, InputGroup, FormControl } from 'react-bootstrap';
+import { FaSearch } from "react-icons/fa";
 
 export const AddCategory = ({onNewCategory}) => {
 
@@ -19,13 +21,17 @@ export const AddCategory = ({onNewCategory}) => {
     }
 
     return (
-        <>
-            <form onSubmit={onSubmit}>
-                <input type='text' 
-                placeholder='Ingrese la categoria' 
-                value={inputValue} 
-                onChange={onInputChange}/>
-            </form>
-        </>
+      <Form onSubmit={onSubmit}>
+        <InputGroup className="mb-2" style={{height: "50px"}}>
+            <InputGroup.Text id="basic-addon1">{<FaSearch />}</InputGroup.Text>
+            <FormControl
+                placeholder="Nombre de la categoria"
+                aria-label="Nombre de la categoria"
+                aria-describedby="basic-addon1"
+                value={inputValue}
+                onChange={onInputChange}
+            />
+        </InputGroup>
+      </Form>
     )
 }

@@ -7,7 +7,7 @@ export const GifGridItem = ({title, url}) => {
     return str
       .toLowerCase()
       .split(' ')
-      .map(function(word) {
+      .map((word) => {
         return word[0].toUpperCase() + word.substr(1);
       })
       .join(' ');
