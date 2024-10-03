@@ -5,26 +5,26 @@ import { useFetchGifs } from "../hooks/useFetchGifs"
 
 export const GifGrid = ({category}) => {
     
-    const {images, isLoading} = useFetchGifs(category)
-    
-    return (
-        <>
-            <h3>{category}</h3>
+  const {images, isLoading} = useFetchGifs(category)
 
-            {
-                isLoading && (<h2>CARGANDO</h2>)
-            }
+  return (
+    <div className="py-5">
+      <h3>{category}</h3>
 
-            <div className="card-grid">
-                {
-                    images.map((image) => (
-                        <GifGridItem 
-                            key={image.id} 
-                            {...image}
-                        />
-                    ))
-                }
-            </div>
-        </>
-    )
+      {
+        isLoading && (<h2>CARGANDO</h2>)
+      }
+
+      <div className="d-flex flex-row gap-3 justify-content-center flex-wrap">
+        {
+          images.map((image) => (
+            <GifGridItem 
+                key={image.id} 
+                {...image}
+            />
+          ))
+        }
+      </div>
+    </div>
+)
 }

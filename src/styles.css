@@ -1,6 +1,6 @@
 * {
     font-family: Helvetica, Arial, sans-serif;
-    background-color: rgb(234, 234, 234);
+    background-color: white;
   }
   
   body {
@@ -34,7 +34,7 @@
     justify-content: center;
   }
   
-  .card {
+  .custom-card {
     align-content: center;
     align-items: center;
     background-color: white;
