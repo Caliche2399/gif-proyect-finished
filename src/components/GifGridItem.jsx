@@ -1,24 +1,18 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
 
-export const GifGridItem = ({title, url}) => {
+const capitalizeFirstLetters = (str) =>
+  str.toLowerCase().split(' ').filter(w => w.length > 0).map(w => w[0].toUpperCase() + w.slice(1)).join(' ')
 
-  const capitalizeFirstLetters =(str) => {
-    return str
-      .toLowerCase()
-      .split(' ')
-      .map((word) => {
-        return word[0].toUpperCase() + word.substr(1);
-      })
-      .join(' ');
-  }
-
+export const GifGridItem = ({ title, url, index }) => {
   return (
-    <Card style={{width: "100%", maxWidth: '400px', objectFit: 'cover' }}>
-      <Card.Img style={{height: "100%", maxHeight: '300px'}} variant="top" src={url} />
-      <Card.Body className='rounded'>
-        <Card.Title>{capitalizeFirstLetters(title)}</Card.Title>
-      </Card.Body>
-    </Card>
+    <article
+      className="gif-card"
+      style={{ animationDelay: `${(index % 12) * 50}ms` }}
+    >
+      <img src={url} alt={title} loading="lazy" />
+      <div className="gif-card-overlay">
+        <p className="gif-card-title">{capitalizeFirstLetters(title)}</p>
+      </div>
+    </article>
   )
 }

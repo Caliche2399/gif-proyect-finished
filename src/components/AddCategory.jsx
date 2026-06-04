@@ -1,7 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-import { Form, InputGroup, FormControl } from 'react-bootstrap';
-import { FaSearch } from "react-icons/fa";
 
 export const AddCategory = ({onNewCategory}) => {
 
@@ -21,17 +19,20 @@ export const AddCategory = ({onNewCategory}) => {
     }
 
     return (
-      <Form onSubmit={onSubmit}>
-        <InputGroup className="mb-2" style={{height: "50px"}}>
-            <InputGroup.Text id="basic-addon1">{<FaSearch />}</InputGroup.Text>
-            <FormControl
-                placeholder="Nombre de la categoria"
-                aria-label="Nombre de la categoria"
-                aria-describedby="basic-addon1"
-                value={inputValue}
-                onChange={onInputChange}
-            />
-        </InputGroup>
-      </Form>
+      <form className="search-form" onSubmit={onSubmit}>
+        <svg className="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Search a category…"
+          aria-label="Search GIF category"
+          value={inputValue}
+          onChange={onInputChange}
+        />
+        <button className="search-btn" type="submit">Search</button>
+      </form>
     )
 }
